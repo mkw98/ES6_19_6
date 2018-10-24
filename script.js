@@ -1,9 +1,9 @@
 class Stopwatch {
 	constructor(display) {
 		this.running = false;
-		this display = display;
+		this.display = display;
 		this.reset();
-		this print(this.times);
+		this.print(this.times);
 	} //nie ma średnika ani przecinka
 	reset() {
 		this.times={
