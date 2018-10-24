@@ -20,27 +20,10 @@ class Stopwatch {
 	`${pad0(times.minutes)}:${pad0(times.seconds)}:${pad0(Math.floor(times.miliseconds))}`;
 	}
 	//pad0 to funkcja,któa dodaje 0 do liczb jednocyfrowych
-}
-const stopwatch = new Stopwatch(
-	document.querySelector('.stopwatch'));
-
-let startButton = document.getElementById('start');
-startButton.addEventListener('click', () => stopwatch.start());
-let stopButton = document.getElementById('stop');
-stopButton.addEventListener('click', () => stopwatch.stop());
-
-function pad0(value) {
-	let result = value.toString(); //przekształcenie wartości liczbowej w string
-	if (result.length < 2) {
-		result = '0' + result;
-	}
-	return result;
-}
-
-start() {
+	start() {
 	if (!this.running) { //sprawdzamy,czy stoper nie chodzi
 		this.running = true; //jeśli stał - zmieniamy flagę running na true
-		this watch = setInterval(()=>this.step(), 10); //co 10s odpalana metoda step
+		this.watch = setInterval(()=>this.step(), 10); //co 10s odpalana metoda step
 	}
 }
 
@@ -66,3 +49,20 @@ stop() {
 	this.running = false;
 	clearInterval(this.watch);
 }
+}
+const stopwatch = new Stopwatch(
+	document.querySelector('.stopwatch'));
+
+let startButton = document.getElementById('start');
+startButton.addEventListener('click', () => stopwatch.start());
+let stopButton = document.getElementById('stop');
+stopButton.addEventListener('click', () => stopwatch.stop());
+
+function pad0(value) {
+	let result = value.toString(); //przekształcenie wartości liczbowej w string
+	if (result.length < 2) {
+		result = '0' + result;
+	}
+	return result;
+}
+
