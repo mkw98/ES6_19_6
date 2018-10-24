@@ -4,6 +4,15 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+var startButton = document.getElementById('start');
+startButton.addEventListener('click', function () {
+	return stopwatch.start();
+});
+var stopButton = document.getElementById('stop');
+stopButton.addEventListener('click', function () {
+	return stopwatch.stop();
+});
+
 var Stopwatch = function () {
 	function Stopwatch(display) {
 		_classCallCheck(this, Stopwatch);
@@ -84,15 +93,6 @@ var Stopwatch = function () {
 }();
 
 var stopwatch = new Stopwatch(document.querySelector('.stopwatch'));
-
-var startButton = document.getElementById('start');
-startButton.addEventListener('click', function () {
-	return stopwatch.start();
-});
-var stopButton = document.getElementById('stop');
-stopButton.addEventListener('click', function () {
-	return stopwatch.stop();
-});
 
 function pad0(value) {
 	var result = value.toString(); //przekształcenie wartości liczbowej w string
