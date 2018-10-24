@@ -1,3 +1,8 @@
+let startButton = document.getElementById('start');
+startButton.addEventListener('click', () => stopwatch.start());
+let stopButton = document.getElementById('stop');
+stopButton.addEventListener('click', () => stopwatch.stop());
+
 class Stopwatch {
 	constructor(display) {
 		this.running = false;
@@ -53,10 +58,7 @@ stop() {
 const stopwatch = new Stopwatch(
 	document.querySelector('.stopwatch'));
 
-let startButton = document.getElementById('start');
-startButton.addEventListener('click', () => stopwatch.start());
-let stopButton = document.getElementById('stop');
-stopButton.addEventListener('click', () => stopwatch.stop());
+
 
 function pad0(value) {
 	let result = value.toString(); //przekształcenie wartości liczbowej w string
