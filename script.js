@@ -1,6 +1,6 @@
 class Stopwatch {
 	constructor(display) {
-		this.runnong = false;
+		this.running = false;
 		this display = display;
 		this.reset();
 		this print(this.times);
@@ -35,4 +35,34 @@ function pad0(value) {
 		result = '0' + result;
 	}
 	return result;
+}
+
+start() {
+	if (!this.running) { //sprawdzamy,czy stoper nie chodzi
+		this.running = true; //jeśli stał - zmieniamy flagę running na true
+		this watch = setInterval(()=>this.step(), 10); //co 10s odpalana metoda step
+	}
+}
+
+step() {
+	if (!this.running) return;
+	this.calculate();
+	this.print();
+}
+
+calculate() {
+	this.times.miliseconds += 1;
+	if (this.times.miliseconds >= 100) {
+		this.times.seconds += 1;
+		this.times.miliseconds = 0;
+	}
+	if (this.times.seconds >= 60) {
+		this.times.minutes += 1;
+		this.times.seconds = 0;
+	}
+}
+
+stop() {
+	this.running = false;
+	clearInterval(this.watch);
 }
