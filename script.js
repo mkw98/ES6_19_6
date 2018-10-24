@@ -29,16 +29,16 @@ class Stopwatch {
 	if (!this.running) { //sprawdzamy,czy stoper nie chodzi
 		this.running = true; //jeśli stał - zmieniamy flagę running na true
 		this.watch = setInterval(()=>this.step(), 10); //co 10s odpalana metoda step
+		}
 	}
-}
 
-step() {
+	step() {
 	if (!this.running) return;
-	this.calculate();
-	this.print();
-}
+		this.calculate();
+		this.print();
+	}
 
-calculate() {
+	calculate() {
 	this.times.miliseconds += 1;
 	if (this.times.miliseconds >= 100) {
 		this.times.seconds += 1;
@@ -47,17 +47,16 @@ calculate() {
 	if (this.times.seconds >= 60) {
 		this.times.minutes += 1;
 		this.times.seconds = 0;
+		}
 	}
-}
 
-stop() {
+	stop() {
 	this.running = false;
 	clearInterval(this.watch);
-}
+	}
 }
 const stopwatch = new Stopwatch(
 	document.querySelector('.stopwatch'));
-
 
 
 function pad0(value) {
