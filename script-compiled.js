@@ -4,15 +4,6 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var startButton = document.getElementById('start');
-startButton.addEventListener('click', function () {
-	return stopwatch.start();
-});
-var stopButton = document.getElementById('stop');
-stopButton.addEventListener('click', function () {
-	return stopwatch.stop();
-});
-
 var Stopwatch = function () {
 	function Stopwatch(display) {
 		_classCallCheck(this, Stopwatch);
@@ -22,7 +13,6 @@ var Stopwatch = function () {
 		this.reset();
 		this.print(this.times);
 	} //nie ma średnika ani przecinka
-
 
 	_createClass(Stopwatch, [{
 		key: 'reset',
@@ -43,8 +33,7 @@ var Stopwatch = function () {
 		key: 'format',
 		value: function format(times) {
 			//metoda, która zwraca szablon, który wykorzystuje obiekt(times) podany do metody
-			return;
-			pad0(times.minutes) + ':' + pad0(times.seconds) + ':' + pad0(Math.floor(times.miliseconds));
+			return pad0(times.minutes) + ':' + pad0(times.seconds) + ':' + pad0(Math.floor(times.miliseconds));
 		}
 		//pad0 to funkcja,któa dodaje 0 do liczb jednocyfrowych
 
@@ -92,8 +81,6 @@ var Stopwatch = function () {
 	return Stopwatch;
 }();
 
-var stopwatch = new Stopwatch(document.querySelector('.stopwatch'));
-
 function pad0(value) {
 	var result = value.toString(); //przekształcenie wartości liczbowej w string
 	if (result.length < 2) {
@@ -101,3 +88,14 @@ function pad0(value) {
 	}
 	return result;
 }
+
+var stopwatch = new Stopwatch(document.querySelector('.stopwatch'));
+var startButton = document.getElementById('start');
+var stopButton = document.getElementById('stop');
+
+startButton.addEventListener('click', function () {
+	return stopwatch.start();
+});
+stopButton.addEventListener('click', function () {
+	return stopwatch.stop();
+});
