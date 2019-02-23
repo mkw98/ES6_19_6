@@ -6,13 +6,14 @@ class Stopwatch {
 		this.print(this.times);
 	} //nie ma średnika ani przecinka
 	
-	reset() {
-		this.times={
-			minutes: 0,
-			seconds: 0,
-			miliseconds: 0	
-		};
-	}
+    reset() {
+        this.times = {
+            minutes: 0,
+            seconds: 0,
+            miliseconds: 0
+        };
+        this.print();
+    }
 
 	print() { //metoda, która ustawia wewnętrzny tekst elementu DOM, pod atrybutem display
 		this.display.innerText = this.format(this.times);
@@ -51,7 +52,8 @@ class Stopwatch {
 		this.running = false;
 		clearInterval(this.watch);
 	}
-}
+
+
 
 function pad0(value) {
 	let result = value.toString(); //przekształcenie wartości liczbowej w string
@@ -64,6 +66,8 @@ function pad0(value) {
 const stopwatch = new Stopwatch(document.querySelector('.stopwatch'));
 let startButton = document.getElementById('start');
 let stopButton = document.getElementById('stop');
+let resetButton = document.getElementById('reset1');
 
 startButton.addEventListener('click', () => stopwatch.start());
 stopButton.addEventListener('click', () => stopwatch.stop());
+resetButton.addEventListener('click', () => stopwatch.reset());
